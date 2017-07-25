@@ -6,7 +6,7 @@
 
 """
 :author:
-    username
+    Chris Jennings
 
 :synopsis:
     A one line summary of what this module does.
