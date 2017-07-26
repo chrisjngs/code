@@ -34,7 +34,7 @@ import random
 #----------------------------------------------------------------------------------------#
 #--------------------------------------------------------------------------- FUNCTIONS --#
 
-def add_float_attr(objs=None, attr_name=None):
+def add_float_attr(objs=None,attr_name=None,min_range=None,max_range=None,default=None):
     """
     This function adds a float attribute to the selected shapes.
 
@@ -44,6 +44,15 @@ def add_float_attr(objs=None, attr_name=None):
     :param attr_name: The name of the attribute that will be added.
     :type: string
 
+    :param min_range: The minimum range of the attribute.
+    :type: float
+
+    :param max_range: The maximum range of the attribute.
+    :type: float
+
+    :param default: The default value of the attribute.
+    :type: float
+
     :return:
     """
     if not objs:
@@ -52,11 +61,22 @@ def add_float_attr(objs=None, attr_name=None):
     if not attr_name:
         print "Please specify the name of the new attribute."
         return None
+    if not min_range:
+        min_range=0.0
+    if not max_range:
+        max_range=1.0
+    if not default:
+        default=0
 
     for obj in objs:
-        cmds.addAttr(obj, longName=attr_name, attributeType="float")
+        cmds.addAttr(obj,
+                     longName=attr_name,
+                     attributeType="float",
+                     minValue=min_range,
+                     maxValue=max_range,
+                     defaultValue=default)
 
-def add_int_attr(objs=None, attr_name=None):
+def add_int_attr(objs=None, attr_name=None, min_range=None, max_range=None, default=None):
     """
     This function adds a int attribute to the selected shapes.
 
@@ -66,6 +86,15 @@ def add_int_attr(objs=None, attr_name=None):
     :param attr_name: The name of the attribute that will be added.
     :type: string
 
+    :param min_range: The minimum range of the attribute.
+    :type: int
+
+    :param max_range: The maximum range of the attribute.
+    :type: int
+
+    :param default: The default value of the attribute.
+    :type: int
+
     :return:
     """
     if not objs:
@@ -74,9 +103,20 @@ def add_int_attr(objs=None, attr_name=None):
     if not attr_name:
         print "Please specify the name of the new attribute."
         return None
+    if not min_range:
+        min_range=0
+    if not max_range:
+        max_range=1
+    if not default:
+        default=0
 
     for obj in objs:
-        cmds.addAttr(obj, longName=attr_name, attributeType="long")
+        cmds.addAttr(obj,
+                     longName=attr_name,
+                     attributeType="long",
+                     minValue=min_range,
+                     maxValue=max_range,
+                     defaultValue=default)
 
 
 def random_float_attr(objs=None, attr_name=None, min_range=None, max_range=None):
