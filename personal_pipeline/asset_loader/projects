@@ -1,0 +1,17 @@
+{"MoonShop": {
+  "assets": {
+    "asset_name": "asset_one",
+    "disciplines": {
+      "model": {
+        "file_exists": "True",
+        "versions": ["active", "001", "002"],
+      "surface": {
+        "file_exists": "True",
+        "versions": ["active", "001", "002"],
+
+      }
+    }
+  }
+  }
+}
+

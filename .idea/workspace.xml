@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d55d6e3e-56d3-4b57-985b-21cd31050fb9" name="Default" comment="updated with ability to add" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1fpG2NJ44ijvAVOXpKeR9wP9BQp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/personal_pipeline/version_up/version_up.py" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Chris\code\personal_pipeline" />
+      <recent name="C:\Users\Chris\code\personal_pipeline\version_up" />
+      <recent name="C:\Users\Chris\code" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Chris\code\personal_pipeline\new_project" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="code" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d55d6e3e-56d3-4b57-985b-21cd31050fb9" name="Default" comment="" />
+      <created>1500271778510</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1500271778510</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Added tool to help with the randomization of the surface scene. First upload">
+      <created>1501027138423</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1501027138423</updated>
+    </task>
+    <task id="LOCAL-00002" summary="updated the template file with correct author">
+      <created>1501027199241</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1501027199241</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added the Transfer UV tool">
+      <created>1501041043257</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1501041043257</updated>
+    </task>
+    <task id="LOCAL-00004" summary="testing the delete function in PyCharm">
+      <created>1501041187188</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1501041187188</updated>
+    </task>
+    <task id="LOCAL-00005" summary="updated with ability to add Min, max, and Default values">
+      <created>1501041301956</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1501041301957</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Added tool to help with the randomization of the surface scene. First upload" />
+    <MESSAGE value="updated the template file with correct author" />
+    <MESSAGE value="Added the Transfer UV tool" />
+    <MESSAGE value="testing the delete function in PyCharm" />
+    <MESSAGE value="updated with ability to add Min, max, and Default values" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated with ability to add Min, max, and Default values" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="423" y="260" key="#Notifications" timestamp="1604190156926">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="423" y="260" key="#Notifications/0.0.1368.872@0.0.1368.872" timestamp="1604190156926" />
+    <state x="451" y="205" key="FileChooserDialogImpl" timestamp="1603913805289">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="451" y="205" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1603913805289" />
+    <state x="508" y="338" key="Github.CreateGistDialog" timestamp="1603943309681">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="508" y="338" key="Github.CreateGistDialog/0.0.1368.872@0.0.1368.872" timestamp="1603943309681" />
+    <state x="35" y="93" key="SettingsEditor" timestamp="1604190092008">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="35" y="93" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1604190092008" />
+    <state x="2456" y="432" key="Vcs.Push.Dialog.v2" timestamp="1596918217906">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="2456" y="432" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1596918217906" />
+    <state x="2682" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596918213550">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="2682" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1400@0.0.3440.1400" timestamp="1596918213550" />
+    <state x="347" y="184" width="672" height="678" key="search.everywhere.popup" timestamp="1603916646338">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="347" y="184" width="672" height="678" key="search.everywhere.popup/0.0.1368.872@0.0.1368.872" timestamp="1603916646338" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
