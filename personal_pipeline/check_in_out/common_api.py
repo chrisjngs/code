@@ -80,7 +80,7 @@ def log_file(asset=None, mode=None):
         if mode == "r":
             #read the file to find if the file is checked out/in
             #store the last line of the txt file in a variable named "status"
-
+            print "Hello."
 
         elif mode == "w+":
             # Write in the log file
@@ -121,5 +121,17 @@ def date():
 def move_files():
     """
     This function moves file(s) to and from the server.
+    :return:
+    """
+
+def store_struct():
+    """
+    This function creates a Json file that stores the folder structure of each asset
+    that is being checked in.out. This json file will be created by looking at the current
+    asset
+
+    example:
+    The live folder structure is projectName>assets>assetName>model>MAYA>mayafile.ma
+
     :return:
     """

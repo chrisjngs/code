@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d55d6e3e-56d3-4b57-985b-21cd31050fb9" name="Default" comment="updated with ability to add" />
+    <list default="true" id="d55d6e3e-56d3-4b57-985b-21cd31050fb9" name="Default" comment="updated with ability to add">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_pipeline/check_in_out/common_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_pipeline/check_in_out/common_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_pipeline/check_in_out/in_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_pipeline/check_in_out/in_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_pipeline/check_in_out/out_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_pipeline/check_in_out/out_api.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,9 +169,10 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="35" y="93" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1604190092008" />
-    <state x="2456" y="432" key="Vcs.Push.Dialog.v2" timestamp="1596918217906">
-      <screen x="0" y="0" width="3440" height="1400" />
+    <state x="556" y="269" key="Vcs.Push.Dialog.v2" timestamp="1604271217258">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
+    <state x="556" y="269" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1604271217258" />
     <state x="2456" y="432" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1596918217906" />
     <state x="2682" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596918213550">
       <screen x="0" y="0" width="3440" height="1400" />
