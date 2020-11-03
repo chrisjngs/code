@@ -118,8 +118,29 @@ def check_asset_path(asset=None):
             filepath = asset
             return filepath
         else:
-            cmds.error("The provided file does not exist, you must provide a filepath"
-                       " ending with a file.")
+            errorMessage = ("Error in check_asset_path.\nThe provided file does not "
+                            "exist, you must provide a filepath ending with a file."
+                            "\nExpected a filepath got: '%s'")%asset
+            cmds.error(errorMessage)
+
+def parse_file_path(path=None):
+    """
+    This function takes a filepath and breaks it into small bite sized pieces that can
+    the be used to recreate the path, one folder at a time.
+
+    :param path: The filepath that will be parsed through.
+    :type: str, filepath
+
+    :return:
+    """
+    if not path:
+        errorMessage = ("Error in parse_file_path. \nYou must provide a filepath to parse"
+                        " through.\nExpected a filepath got: '%s'")%path
+        sys.exit(errorMessage)
+    splitPath = path.split("\\")
+    for entry in splitPath:
+        if entry.contains
+        print entry
 
 def write_json(asset=None):
     """
@@ -148,11 +169,17 @@ def read_json():
     :return:
     """
 
-def create_folder():
+def create_folder(path=None):
     """
     This function creates a folder at the given location.
     :return:
     """
+    if not path:
+        sys.exit("Error in create_folder. \nNo filepath provided. "
+                 "You must provide a directory path to create the folder at.")
+    if not os.path.isdir(path):
+        newDir = os.makedirs(path)
+        return newDir
 
 def copy_files(source=None, destination=None):
     """
@@ -202,7 +229,9 @@ def readable_filepath(path=None):
     """
 
     if not path:
-        sys.exit("There was no path provided.")
+        errorMessage = "Error in readable_filepath. No filepath was provided, \nexpected" \
+                       "filepath, got: %s"%path
+        sys.exit(errorMessage)
     final_path = path.replace("\\", "\\\\")
     return final_path
 

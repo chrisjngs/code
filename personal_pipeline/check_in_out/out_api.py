@@ -44,10 +44,17 @@ class CheckOut(object):
         """
         
         """
-    def start(self):
+
+    def check_out(self):
         """
         This is the function that will start the check out process.
         :return:
         """
+
+        outFile = ca.check_asset_path()
+
+
+
         if ca.check_asset_path():
+
             print "The asset was provided."
