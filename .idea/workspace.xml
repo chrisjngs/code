@@ -7,14 +7,16 @@
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d55d6e3e-56d3-4b57-985b-21cd31050fb9" name="Default" comment="Updated to have more functionality. Working on the readable_filepath function to ensure no slash errors. &#10;&#10;Got the copy_files function to work properly. Simply pass a file and where you want to copy it to and wait for the file to copy.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_pipeline/check_in_out/common_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_pipeline/check_in_out/common_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_pipeline/check_in_out/out_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_pipeline/check_in_out/out_api.py" afterDir="false" />
-    </list>
+    <list default="true" id="d55d6e3e-56d3-4b57-985b-21cd31050fb9" name="Default" comment="Updated error messages throughout tool and started working on the def parse_file_path function." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -162,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604387864807</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Updated error messages throughout tool and started working on the def parse_file_path function.">
+      <created>1604431713226</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1604431713226</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,7 +179,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -185,7 +206,8 @@
     <MESSAGE value="updated with ability to add Min, max, and Default values" />
     <MESSAGE value="Updated common_api.py to have store_struct() that creates a temp json file that will be used to cross examine the folder structure on the check in/out process.&#10;&#10;Added some empty functions in the in_api.py and out_api.py that will be filled in later." />
     <MESSAGE value="Updated to have more functionality. Working on the readable_filepath function to ensure no slash errors. &#10;&#10;Got the copy_files function to work properly. Simply pass a file and where you want to copy it to and wait for the file to copy." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated to have more functionality. Working on the readable_filepath function to ensure no slash errors. &#10;&#10;Got the copy_files function to work properly. Simply pass a file and where you want to copy it to and wait for the file to copy." />
+    <MESSAGE value="Updated error messages throughout tool and started working on the def parse_file_path function." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated error messages throughout tool and started working on the def parse_file_path function." />
   </component>
   <component name="WindowStateProjectService">
     <state x="423" y="260" key="#Notifications" timestamp="1604190156926">
