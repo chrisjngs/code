@@ -139,8 +139,8 @@ def parse_file_path(path=None):
         sys.exit(errorMessage)
     splitPath = path.split("\\")
     for entry in splitPath:
-        if entry.contains
-        print entry
+        if entry.contains:
+            print entry
 
 def write_json(asset=None):
     """

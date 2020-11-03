@@ -16,7 +16,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d55d6e3e-56d3-4b57-985b-21cd31050fb9" name="Default" comment="Updated error messages throughout tool and started working on the def parse_file_path function." />
+    <list default="true" id="d55d6e3e-56d3-4b57-985b-21cd31050fb9" name="Default" comment="Code update&#10;&#10;Updated code on 11-1-2020">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +35,23 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="c000153f-35a9-4585-b614-209b085e7035" />
   </component>
   <component name="ProjectId" id="1fpG2NJ44ijvAVOXpKeR9wP9BQp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -48,7 +66,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/personal_pipeline/version_up/version_up.py" />
   </component>
   <component name="RecentsManager">
@@ -171,8 +189,25 @@
       <option name="project" value="LOCAL" />
       <updated>1604431713226</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Code update&#10;&#10;Updated code on 11-1-2020">
+      <created>1604432616233</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1604432616233</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -199,6 +234,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
     <MESSAGE value="Added tool to help with the randomization of the surface scene. First upload" />
     <MESSAGE value="updated the template file with correct author" />
     <MESSAGE value="Added the Transfer UV tool" />
@@ -207,29 +243,38 @@
     <MESSAGE value="Updated common_api.py to have store_struct() that creates a temp json file that will be used to cross examine the folder structure on the check in/out process.&#10;&#10;Added some empty functions in the in_api.py and out_api.py that will be filled in later." />
     <MESSAGE value="Updated to have more functionality. Working on the readable_filepath function to ensure no slash errors. &#10;&#10;Got the copy_files function to work properly. Simply pass a file and where you want to copy it to and wait for the file to copy." />
     <MESSAGE value="Updated error messages throughout tool and started working on the def parse_file_path function." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated error messages throughout tool and started working on the def parse_file_path function." />
+    <MESSAGE value="Code update&#10;&#10;Updated code on 11-1-2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code update&#10;&#10;Updated code on 11-1-2020" />
   </component>
   <component name="WindowStateProjectService">
     <state x="423" y="260" key="#Notifications" timestamp="1604190156926">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="423" y="260" key="#Notifications/0.0.1368.872@0.0.1368.872" timestamp="1604190156926" />
-    <state x="451" y="205" key="FileChooserDialogImpl" timestamp="1603913805289">
+    <state x="140" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604434281777">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="451" y="205" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1603913805289" />
+    <state x="140" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1368.872@0.0.1368.872" timestamp="1604434281777" />
+    <state x="93" y="93" width="1181" height="685" key="DiffContextDialog" timestamp="1604434531446">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="93" y="93" width="1181" height="685" key="DiffContextDialog/0.0.1368.872@0.0.1368.872" timestamp="1604434531446" />
+    <state x="451" y="205" key="FileChooserDialogImpl" timestamp="1604433953569">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="451" y="205" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1604433953569" />
     <state x="508" y="338" key="Github.CreateGistDialog" timestamp="1603943309681">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="508" y="338" key="Github.CreateGistDialog/0.0.1368.872@0.0.1368.872" timestamp="1603943309681" />
-    <state x="35" y="93" key="SettingsEditor" timestamp="1604190092008">
+    <state x="35" y="93" key="SettingsEditor" timestamp="1604436096367">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="35" y="93" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1604190092008" />
-    <state x="416" y="253" key="Vcs.Push.Dialog.v2" timestamp="1604387728504">
+    <state x="35" y="93" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1604436096367" />
+    <state x="416" y="253" key="Vcs.Push.Dialog.v2" timestamp="1604432446907">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="416" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1604387728504" />
+    <state x="416" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1604432446907" />
     <state x="2456" y="432" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1596918217906" />
     <state x="2682" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596918213550">
       <screen x="0" y="0" width="3440" height="1400" />
