@@ -26,6 +26,7 @@
 #----------------------------------------------------------------------------- IMPORTS --#
 
 # Built-in and Third Party
+import maya.cmds as cmds
 
 # Modules That You Wrote
 import personal_pipeline.check_in_out.common_api as ca
@@ -44,3 +45,18 @@ class CheckIn(object):
         """
 
         """
+
+    def start(self, asset=None):
+        """
+        This function starts the check in process.
+
+        :param asset: The asset that will be checked in.
+        :type: str, filepath.
+
+        :return:
+        """
+        if not asset:
+            cmds.warning("There was no asset pathed to the check-in tool, using the "
+                         "current asset.")
+        if ca.check_asset_path(asset):
+            print "The asset path was provided."

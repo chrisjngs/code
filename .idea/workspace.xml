@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="d55d6e3e-56d3-4b57-985b-21cd31050fb9" name="Default" comment="updated with ability to add">
+    <list default="true" id="d55d6e3e-56d3-4b57-985b-21cd31050fb9" name="Default" comment="Updated common_api.py to have store_struct() that creates a temp json file that will be used to cross examine the folder structure on the check in/out process.&#10;&#10;Added some empty functions in the in_api.py and out_api.py that will be filled in later.">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal_pipeline/check_in_out/common_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_pipeline/check_in_out/common_api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal_pipeline/check_in_out/in_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_pipeline/check_in_out/in_api.py" afterDir="false" />
@@ -140,8 +150,26 @@
       <option name="project" value="LOCAL" />
       <updated>1501041301957</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Updated common_api.py to have store_struct() that creates a temp json file that will be used to cross examine the folder structure on the check in/out process.&#10;&#10;Added some empty functions in the in_api.py and out_api.py that will be filled in later.">
+      <created>1604274217085</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1604274217085</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -150,7 +178,8 @@
     <MESSAGE value="Added the Transfer UV tool" />
     <MESSAGE value="testing the delete function in PyCharm" />
     <MESSAGE value="updated with ability to add Min, max, and Default values" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated with ability to add Min, max, and Default values" />
+    <MESSAGE value="Updated common_api.py to have store_struct() that creates a temp json file that will be used to cross examine the folder structure on the check in/out process.&#10;&#10;Added some empty functions in the in_api.py and out_api.py that will be filled in later." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated common_api.py to have store_struct() that creates a temp json file that will be used to cross examine the folder structure on the check in/out process.&#10;&#10;Added some empty functions in the in_api.py and out_api.py that will be filled in later." />
   </component>
   <component name="WindowStateProjectService">
     <state x="423" y="260" key="#Notifications" timestamp="1604190156926">
@@ -169,10 +198,10 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="35" y="93" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1604190092008" />
-    <state x="556" y="269" key="Vcs.Push.Dialog.v2" timestamp="1604271217258">
+    <state x="416" y="253" key="Vcs.Push.Dialog.v2" timestamp="1604274293970">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="556" y="269" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1604271217258" />
+    <state x="416" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1604274293970" />
     <state x="2456" y="432" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1596918217906" />
     <state x="2682" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596918213550">
       <screen x="0" y="0" width="3440" height="1400" />

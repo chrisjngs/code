@@ -49,25 +49,5 @@ class CheckOut(object):
         This is the function that will start the check out process.
         :return:
         """
-
-    def check_folder_struct(self):
-        """
-        This function checks the folder structure of the given asset. It should store
-        the structure in a dictionary that can be used when creating the local folder
-        structure.
-        :return:
-        """
-
-    def create_folder_struct(self):
-        """
-        This function creates the folder structure that matches the folder structure for
-        the  on selected asset the server.
-
-        For example:
-
-        This function is given a dictionary and stores it in the variable 'servDict'.
-        This dictionary holds a list with each asset being checked out.
-
-        servDict = {assetName:[
-        :return:
-        """
+        if ca.check_asset_path():
+            print "The asset was provided."

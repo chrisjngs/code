@@ -28,6 +28,8 @@
 # Built-in and Third Party
 import maya.cmds as cmds
 import os
+import sys
+import shutil
 from datetime import datetime
 
 # Modules That You Wrote
@@ -44,7 +46,7 @@ from datetime import datetime
 # in -- Sally5 -- Chris -- 10/28/2020/6:53PM
 # store the values into dictionaries as keys and values
 # lodDict = [status:in], [Computer:Sally5], [User:Chris], [Date:10/28/2020/6:53PM]
-def log_file(asset=None, mode=None):
+def write_log_file(asset=None, mode=None):
     """
     This function reads and writes the text file to log which file is checked in\out.
 
@@ -57,8 +59,7 @@ def log_file(asset=None, mode=None):
     """
     # If the user didn't provide a mode to view the log in, prompt for them to pass one.
     if not mode:
-        print "must provide a mode to work with the log file."
-        return False
+        sys.exit("Must provide a mode to work with the log file.")
 
     # If the user didn't provide an asset to check in/out, do it on the current asset.
     if not asset:
@@ -66,8 +67,7 @@ def log_file(asset=None, mode=None):
         asset = cmds.file(query=True, location=True)
         # If the file isn't saved, escape the check in/out process.
         if asset == "untitled":
-            print "You must save the file before a check in/out can occur."
-            return False
+            sys.exit("You must save the file before a check in/out can occur.")
         print asset
     
     # Check to see if the log file exists
@@ -105,33 +105,120 @@ def log_file(asset=None, mode=None):
         # Create the log file and write it as if it was a check out.
         return status[status]
 
+def check_asset_path(asset=None):
     """
-    if status == "in":
-        return "in"
-    elif status == "out":
-        return "out"
-    """
-def date():
-    """
-    This function gets the date and time and returns it as a readible string.
+    This function gets the current asset filepath.
     :return:
     """
+    if not asset:
+        filepath = cmds.file(query=True, location=True)
+        return filepath
+    else:
+        if os.path.isfile(asset):
+            filepath = asset
+            return filepath
+        else:
+            cmds.error("The provided file does not exist, you must provide a filepath"
+                       " ending with a file.")
 
-
-def move_files():
-    """
-    This function moves file(s) to and from the server.
-    :return:
-    """
-
-def store_struct():
+def write_json(asset=None):
     """
     This function creates a Json file that stores the folder structure of each asset
-    that is being checked in.out. This json file will be created by looking at the current
-    asset
+    that is being checked in/out. This json file will be created by looking at the current
+    asset directory and working upward to the project name folder.
 
     example:
     The live folder structure is projectName>assets>assetName>model>MAYA>mayafile.ma
 
+    :param asset: A passed asset filepath. ex. A:/Chris/_CurrentProjects/moonshop/assets/
+    testAsset/model/MAYA/testAsset.ma
+    :type: str filepath
+
+    :return: json file
+    """
+    if not asset:
+        cmds.warning("No file was specified, using the current filepath instead.")
+        asset = get_asset()
+
+def read_json():
+    """
+    This function reads the json file that is created in get_asset_folders() and uses it
+    to recreate the server folder structure locally or the local folder structure on the
+    server.
     :return:
     """
+
+def create_folder():
+    """
+    This function creates a folder at the given location.
+    :return:
+    """
+
+def copy_files(source=None, destination=None):
+    """
+    This function moves file(s) from one location to another.
+
+    :param source: The file that should be moved.
+    :type: str, filepath
+
+    :param destination: The location the source file should be moved to.
+    :type: str, directory
+
+    :return:
+    """
+
+    # Converts the provided filepaths to a readable format with the correct slashes.
+    destination = readable_filepath(destination)
+    source = readable_filepath(source)
+
+    # Checking to make sure a source file was passed.
+    if not source:
+        sys.exit("You need to specify a file to copy.")
+    # Checking to make sure the source variable is a file.
+    if not os.path.isfile(source):
+        sys.exit("You need to specify a file to copy, not a directory.")
+    # Checking to make sure a destination directory was passed.
+    if not destination:
+        sys.exit("You need to specify where to copy the file to.")
+    # Checking to make sure the destination variable is a directory.
+    if not os.path.isdir(destination):
+        sys.exit("You need to specify a directory to copy the file to.")
+    # If the destination variable is a file, then get its directory.
+    if os.path.isfile(destination):
+        destination = os.path.dirname(destination)
+
+    # Copy the specified file to the destination directory.
+    shutil.copy(source, destination)
+
+def readable_filepath(path=None):
+    """
+    This function converts the slashes in a filepath to be readable by any OS.
+
+    :param path: The filepath to convert.
+    :type: str, filepath
+
+    :return final_path: The final converted file_path
+    :type: str
+    """
+
+    if not path:
+        sys.exit("There was no path provided.")
+    final_path = path.replace("\\", "\\\\")
+    return final_path
+
+def check_version(source=None, destination=None):
+    """
+    This function compairs the version of the local file with that of the server file and
+    returns whichever one is newest.
+
+    :param source: The file that is being compaired
+    :type: str, filepath
+
+    :param destination: The file that should be compaired to.
+    :type: str, filepath
+    :return:
+    """
+    if not source:
+        sys.exit("You need to specify a file that needs to be compaired.")
+    if not destination:
+        sys.exit("You need to specify a file to compair against.")
