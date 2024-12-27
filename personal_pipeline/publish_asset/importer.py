@@ -30,6 +30,7 @@ import os
 import maya.cmds as cmds
 import pymel.core as pm
 import maya.mel as mel
+import mtoa.ui.arnoldmenu as arnold
 
 # Modules That You Wrote
 import personal_pipeline.publish_asset.export as pa
@@ -41,7 +42,7 @@ pae = pa.Export()
 #----------------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------- CLASSES --#
 
-class Import(object):
+class Importer(object):
 
     def __init__(self):
         """
@@ -55,7 +56,6 @@ class Import(object):
 
     def import_obj(self, filepath = None):
         """
-
         :param self:
         :param filepath: The path to the file that should be imported
         :type: str
@@ -68,7 +68,6 @@ class Import(object):
 
     def import_fbx(self, filepath=None):
         """
-
         :param self:
         :param filepath: The path to the file that should be imported
         :type: str
@@ -98,18 +97,26 @@ class Import(object):
 
     def import_arnold(self, filepath=None):
         """
-
         :param self:
         :param filepath: The path to the file that should be imported
         :type: str
         :return:
         """
-        self.exportedFile = "%s//model//EXPORTS//Published//%s.ai" % (filepath, self.curAsset)
-        print self.exportedFile
+        # creates a new aiStandIn
+        importedAss = arnold.createStandIn()
+        #### Update the added filepath to fit the current pipeline ####
+        cmds.setAttr("%s.dso" % importedAss,
+                     '%s//EXPORTS//Published//%s.ass' % (filepath, self.curAsset),
+                     type='string')
+        # Sets the mode of the new aiStandIn to shaded
+        cmds.setAttr("%s.mode" % importedAss, 6)
+        # Selects the transform of the new aiStandIn and then renames it
+        transformList = cmds.listRelatives(importedAss, parent=True, fullPath=True)
+        cmds.select(transformList)
+        cmds.rename(transformList, str(self.curAsset))
 
-    def start(self, obj=False, abc=False, fbx=False, ai=False):
+    def start(self, obj=False, abc=False, fbx=False, ass=False):
         """
-
         :return:
         """
         if self.curAsset == "unknown":
@@ -121,7 +128,7 @@ class Import(object):
         #print "get_asset ends with:\n%s\n" %self.get_asset()
         self.fileDirectory = pae.get_directory(self.assetPath)
         self.fileDirectory = pae.get_directory(self.fileDirectory)
-        self.fileDirectory = pae.get_directory(self.fileDirectory)
+        #self.fileDirectory = pae.get_directory(self.fileDirectory)
 
         if obj:
             self.import_obj(self.fileDirectory)
@@ -129,5 +136,5 @@ class Import(object):
             self.import_alembic(self.fileDirectory)
         if fbx:
             self.import_fbx(self.fileDirectory)
-        if ai:
+        if ass:
             self.import_arnold(self.fileDirectory)

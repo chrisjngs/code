@@ -1,151 +1,235 @@
+#!/usr/bin/env python
+# SETMODE 777
+
+# ----------------------------------------------------------------------------------------#
+# ------------------------------------------------------------------------------ HEADER --#
+
+"""
+:author:
+    Chris Narro
+
+:synopsis:
+    Creates a gui for the shader creation tool.
+
+:description:
+    This script runs the logic for the GUI for the shader network creation tool.
+
+:applications:
+    Any applications that are required to run this script, i.e. Maya.
+
+:see_also:
+    Any other code that you have written that this module is similar to.
+
+"""
+
+# ----------------------------------------------------------------------------------------#
+# ----------------------------------------------------------------------------- IMPORTS --#
+
+# Built-in and Third Party
 import maya.cmds as cmds
-import artist_tools.surface_tools.create_shader.create_ai_standard as casd
+from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2.QtCore import *
+from PySide2.QtWidgets import *
+from maya import OpenMayaUI as omui
+from shiboken2 import wrapInstance
+# Modules That You Wrote
+import artist_tools.surface_tools.create_shader.create_ai_standard as cai
+reload(cai)
+# ----------------------------------------------------------------------------------------#
+# --------------------------------------------------------------------------- FUNCTIONS --#
+def get_maya_window():
+    """
+    Gets a pointer to the Maya window.
+    """
+    maya_main_window_ptr = omui.MQtUtil.mainWindow()
+    return wrapInstance(long(maya_main_window_ptr), QtWidgets.QWidget)
+# ----------------------------------------------------------------------------------------#
+# ----------------------------------------------------------------------------- CLASSES --#
+
+class ShaderGUI(QtWidgets.QDialog):
+    """
+
+    """
+
+    def __init__(self):
+        """
+
+        """
+        QtWidgets.QDialog.__init__(self, parent=get_maya_window())
+        self.object_list = None
+        self.shader_list = None
+
+        #self.model = QStandardItemModel()
+
+        self.create_shader_btn = None
+        self.shader_name = None
+
+        self.diff_cb = None
+        self.spec_cb = None
+        self.metal_cb = None
+        self.rough_cb = None
+        self.opac_cb = None
+        self.bump_cb = None
+        self.norm_cb = None
+        self.subs_cb = None
+        self.disp_cb = None
 
 
-def removeShader(*args):
-	cmds.hyperShade(a='lambert1')
-	return
+    def init_gui(self):
+        """
 
-def pubWindow(*args):
+        :return:
+        """
+        # Make a layout.
+        main_vb = QtWidgets.QVBoxLayout(self)
 
-	pubWindow = 'pubWindow'
-	containters = cmds.ls(con=1)
+        # List portion of the gui
+        self.object_list = QtWidgets.QListWidget()
+        #self.object_list.setModel(QtGui.QStandardItemModel())
+        object_label = QtWidgets.QLabel("Existing Objects")
+        reload_btn = QtWidgets.QPushButton("Refresh Object List")
+        assign_btn =QtWidgets.QPushButton("Assign Shader")
+        self.shader_list = QtWidgets.QListWidget()
+        shader_label = QtWidgets.QLabel("Existing Shaders")
 
-	if cmds.window('pubWindow', ex=1):
-		cmds.deleteUI('pubWindow')
-	cmds.window('pubWindow', t='Select Asset', rtf=1)
-	cmds.rowColumnLayout()
-	cmds.text('Assets in Scene')
-	cmds.textScrollList(a=containters)
-	cmds.button('addCon', l='Add to asset')
-	cmds.button('newCon', l='Create new asset')#, c=casd.publishShader())
-	cmds.setParent(u=1)
+        # Add information to lists.
+        self.update_obj_list()
+        self.update_shader_list()
 
-	cmds.showWindow('pubWindow')
-	return
+        # vbox_03 portion of the gui
+        self.create_shader_btn = QtWidgets.QPushButton("Create Shader")
+        shader_type = QtWidgets.QComboBox()
+        shader_type.addItem("aiStandardSurface")
+        label_003 = QtWidgets.QLabel("Shader Name")
+        self.shader_name = QtWidgets.QLineEdit()
+        line = QtWidgets.QFrame()
+        line.setFrameStyle(line.HLine)
+        grid = QtWidgets.QGridLayout()
 
-def clickOff(*args):
+        # Texture options
+        self.diff_cb = QtWidgets.QCheckBox("Diffuse")
+        self.spec_cb = QtWidgets.QCheckBox("Specular")
+        self.metal_cb = QtWidgets.QCheckBox("Metal")
+        self.rough_cb = QtWidgets.QCheckBox("Rough")
+        self.opac_cb = QtWidgets.QCheckBox("Opacity")
+        self.bump_cb = QtWidgets.QCheckBox("Bump")
+        self.norm_cb = QtWidgets.QCheckBox("Normal")
+        self.subs_cb = QtWidgets.QCheckBox("SSS")
+        self.disp_cb = QtWidgets.QCheckBox("Disp")
 
-	cmds.select(cl=1)
+        # Set some default values
+        self.diff_cb.setChecked(True)
+        self.rough_cb.setChecked(True)
+        self.norm_cb.setChecked(True)
 
-def newShaderName(*args):
+        self.shader_name.setPlaceholderText("aiStandardSurface")
 
-	selection = cmds.textScrollList('objects', q=1, si=1)
-	cmds.select(selection)
-	if selection:
-		selection = selection[0]
-	newName = cmds.textField('shaderNameField', e=1, tx=selection)
-	if cmds.ls(sl=1):
-		objName = selection
-		return objName
-	else:
-		defaultName ='select object'
-		return defaultName
+        hbox_01 = QtWidgets.QHBoxLayout()
+        vbox_01 = QtWidgets.QVBoxLayout()
+        vbox_02 = QtWidgets.QVBoxLayout()
+        vbox_03 = QtWidgets.QVBoxLayout()
 
-def curShader(*args):
+        # Add all the checkboxes
+        grid.addWidget(self.diff_cb, 0,0)
+        grid.addWidget(self.spec_cb, 0,1)
+        grid.addWidget(self.metal_cb, 0,2)
 
-	shadeSel = cmds.textScrollList('shaders', q=1, si=1)
-	cmds.select(shadeSel,add=1)
-	selShader = cmds.select(shadeSel)
-	if shadeSel:
-		shadeSel = shadeSel[0]
-	print (shadeSel)
+        grid.addWidget(self.rough_cb,1,0)
+        grid.addWidget(self.opac_cb,1,1)
+        grid.addWidget(self.bump_cb,1,2)
 
-	return selShader
+        grid.addWidget(self.norm_cb,2,0)
+        grid.addWidget(self.subs_cb,2,1)
+        grid.addWidget(self.disp_cb,2,2)
 
-def applyBtn(*args):
+        # Add items to vbox_01
+        vbox_01.addWidget(object_label)
+        vbox_01.addWidget(reload_btn)
+        vbox_01.addWidget(self.object_list)
+        vbox_01.addWidget(assign_btn)
 
-	print 'the shader has been assigned'
-	cmds.hyperShade(newShaderName, a=curShader)
+        # Add items to vbox_02
+        vbox_01.addWidget(shader_label)
+        vbox_01.addWidget(self.shader_list)
 
-def removeBtn(*args):
+        # Add items to vbox_03
+        vbox_03.addWidget(self.create_shader_btn)
+        vbox_03.addWidget(shader_type)
+        vbox_03.addWidget(line)
+        vbox_03.addWidget(label_003)
+        vbox_03.addWidget(self.shader_name)
+        #vbox_03.addWidget(line)
+        vbox_03.addLayout(grid)
 
-	print 'lambert 1 has been assigned'
-	cmds.hyperShade(newShaderName, a='lambert1')
+        # Connect buttons to logic.
+        self.create_shader_btn.clicked.connect(self.run_create)
+        reload_btn.clicked.connect(self.update_obj_list)
 
+        hbox_01.addLayout(vbox_01)
+        hbox_01.addLayout(vbox_02)
 
-def createGUI():
+        hbox_01.addLayout(vbox_03)
 
-	objects = cmds.ls(typ='mesh')
-	realNames = cmds.listRelatives(objects, p=1)
-	shaders = cmds.ls(mat=1)
+        main_vb.addLayout(hbox_01)
 
-	mainWindow = 'mainWindow'
-	if cmds.window(mainWindow, ex=1):
-		cmds.deleteUI(mainWindow)
+        #self.setFixedSize(1400, 800)
+        self.setWindowTitle("Shader Network")
+        self.show()
 
-	windowSize = cmds.window('mainWindow', t='Create Shading Network', rtf=1)
-	cmds.rowColumnLayout('mainLayout', nc=4)
-	cmds.rowColumnLayout('objectList', cw=[(1,200)])
-	cmds.text('List of objects in scene')
-	cmds.textScrollList('objects', ams=1, a=realNames, h=400, sc=newShaderName)
-	cmds.setParent('mainLayout')
+    def run_create(self):
+        """
 
-	cmds.rowColumnLayout('applyBtns', nr=15, rh=[(1, 30), (2, 30)])
-	cmds.text('\n')
-	cmds.text('\n')
-	cmds.text('\n')
-	cmds.text('\n')
-	cmds.text('\n')
-	cmds.button('addBtn', l='Apply shader', c=applyBtn, h=30)
-	cmds.text('\n')
-	cmds.text('\n')
-	cmds.text('\n')
-	cmds.text('\t')
-	cmds.button('subBtn', l='Remove shader', h=30, c=removeShader)
-	cmds.setParent(u=1)
+        :return:
+        """
+        #print "create Shader button pressed"
+        shader = cai.CreateShader()
+        name = self.shader_name.displayText()
 
-	cmds.columnLayout('shaderList', w=200, adj=1)
-	cmds.text('List of shaders in scene')
-	cmds.textScrollList('shaders', ams=0, a=shaders, h=400, sc=curShader)
-	cmds.setParent('mainLayout')
+        shader.create_shader(shadename=name)
 
-	cmds.columnLayout('mainButtons', adjustableColumn=True)
-	cmds.text('\t')
-	cmds.button(l='Publish to Asset', c=pubWindow, h=30)
-	cmds.text('\t')
-	cmds.button(l='Create aiStandard', h=30, c=casd.createAiStandard)
-	cmds.text('\t')
-	cmds.button(l='Create aiSkin', h=30)
-	cmds.setParent('mainButtons')
+        if self.diff_cb.isChecked():
+            shader.diffuse_texture(name)
+        #if self.spec_cb_cb.isChecked():
+            #shader.specular_texture(name)
+        #if self.metal_cb.isChecked():
+            #shader.metal_texture(name)
+        if self.rough_cb.isChecked():
+            shader.rough_texture(name)
+        if self.norm_cb.isChecked():
+            shader.normal_texture(name)
+        if self.opac_cb.isChecked():
+            shader.opacity_texture(name)
+        if self.subs_cb.isChecked():
+            shader.sss_texture(name)
+        if self.bump_cb.isChecked():
+            shader.bump_texture(name)
+        if self.disp_cb.isChecked():
+            shader.displace_texture(name)
 
-	cmds.rowColumnLayout('nameFieldsText', nr=1, rh=[(1, 20)])
-	cmds.text('Enter the shaders prefix and name')
-	cmds.setParent(u=1)
-	cmds.rowColumnLayout('nameFields', nr=1, rh=[(1, 20)])
-	cmds.textField('prefixField')
-	shaderPrefix = cmds.textField('prefixField', e=1, text='mrtl_', w=50)
-	cmds.textField('shaderNameField')
-	shaderName = cmds.textField('shaderNameField',e=1, text=newShaderName())
-	cmds.setParent(u=1)
+        self.update_shader_list()
 
-	#cmds.separator()
-	cmds.text('\t')
-	cmds.text('aiStandard Map Options')
-	cmds.separator()
-	cmds.rowColumnLayout('checkBoxes', nc=3)
-	cmds.checkBox('diffBox',l='Diffuse')
-	cmds.checkBox('specBox', l='Spec')
-	cmds.checkBox('fresnalBox', l='Fresnal')
-	cmds.checkBox('opacityBox', l='Opacity')
-	cmds.checkBox('bumpBox', l='Bump')
-	cmds.checkBox('sssBox', l='SSS')
-	cmds.checkBox('dispBox', l='Displacement')
-	cmds.setParent(u=1)
-	cmds.text('\t')
-	cmds.text('aiSkin Map Options')
-	cmds.separator()
-	cmds.rowColumnLayout('skinCheckBox', nc=3)
-	cmds.checkBox('shallowBox',l='Shallow')
-	cmds.checkBox('midBox',l='Mid')
-	cmds.checkBox('deepBox',l='Deep')
-	cmds.checkBox('sssBox', l='SSS')
-	cmds.checkBox('specBox', l='Spec')
-	cmds.checkBox('sheenBox', l='Sheen')
-	cmds.checkBox('fresnalBox', l='Fresnal')
-	cmds.checkBox('bumpBox', l='Bump')
-	cmds.checkBox('dispBox', l='Displacement')
-	cmds.showWindow(mainWindow)
-	return shaderName
+    def update_obj_list(self):
+        """
 
-createGUI()
+        :return:
+        """
+        self.object_list.clear()
+        objects = cmds.ls(dag=1, g=1)
+
+        for name in objects:
+            #print "item '%s' added" % item
+            item = QListWidgetItem(name)
+            self.object_list.addItem(item)
+
+    def update_shader_list(self):
+        """
+
+        :return:
+        """
+        self.shader_list.clear()
+        shaders = cmds.ls(mat=1)
+
+        for name in shaders:
+            #print "item '%s' added" % item
+            item = QListWidgetItem(name)
+            self.shader_list.addItem(item)

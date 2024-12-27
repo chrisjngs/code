@@ -51,6 +51,7 @@ class Export(object):
         self.curAsset = None
         self.fileDirectory =None
         self.exportedFile = None
+        self.version = True
 
     def create_folder(self, dirpath=None):
         """
@@ -129,7 +130,20 @@ class Export(object):
         This function exports the selected shapes as a .ai file
         :return:
         """
-        print ".ai exporter doesn't work yet, try again another time. 08-10-20"
+        # Exports the selected shapes to a aiStandIn file
+        self.exportedFile = "%s//EXPORTS//Published//%s.ass"%(assetPath, self.curAsset)
+        #cmds.arnoldExportAss(filename=self.exportedFile, selected=True)
+        #cmds.arnoldExportAss(filename="C:/Users/chris/Desktop/OfflineWork/testFolder/zzTestAsset_Scripted.ass",
+        #    selected=True)
+        if self.create_folder(self.exportedFile):
+            if self.version:
+                if self.version_export(self.exportedFile, "ass"):
+                    cmds.arnoldExportAss(filename=self.exportedFile, selected=True)
+            else:
+                cmds.arnoldExportAss(filename=self.exportedFile, selected=True)
+
+
+        #print ".ai exporter doesn't work yet, try again another time. 08-10-20"
         return self.exportedFile
 
     def get_asset(self):
@@ -150,11 +164,30 @@ class Export(object):
         tempList = self.curAsset.split(".")
         # Re-assigns the curAsset to the first index, which is just the asset name without
         # a file extension.
-
         self.curAsset = tempList[0]
 
-
         return str(cur_file)
+
+    def render_smooth(self, selection = None):
+        """
+
+        :param selection: The shapes that will get smoothed at rendertime in Arnold
+        :type: list
+
+        :return:
+        """
+
+        if not selection:
+            selection = self.publishShapes
+
+        for item in selection:
+            shape = cmds.listRelatives(item, s=True)
+
+            if cmds.getAttr("%s.aiSubdivType" % shape[0]) == 1:
+                pass
+            else:
+                cmds.setAttr("%s.aiSubdivType" % shape[0], 1)
+                cmds.setAttr("%s.aiSubdivIterations" % shape[0], 2)
 
     def version_export(self, assetPath=None, extension=None):
         """
@@ -234,9 +267,15 @@ class Export(object):
 
         return dirPath
 
-    def publish(self, asset=None, obj=False, abc=False, fbx=False, ai=False):
+    def publish(self, smooth=False, version=True, asset=None, obj=False, abc=False, fbx=False, ai=False):
         """
         This is the starting function that calls the other functions.
+
+        :param smooth: Flag if the published shapes should get smoothed at rendertime in Arnold
+        :type: bool
+
+        :param version: Flag if the puplish should version up
+        :type: bool
 
         :param asset: A provided asset to publish outside of the given Maya file.
         :type: str
@@ -258,6 +297,9 @@ class Export(object):
         print "\n\n\n\n\n\n\n\n\n\n\n"
         originalSelection = cmds.ls(sl=1)
         self.assetPath = self.get_asset()
+        # check to see if publish should overwrite
+        if not version:
+            self.version = version
         #print "get_asset ends with:\n%s\n" %self.get_asset()
         self.fileDirectory = self.get_directory(self.assetPath)
         self.fileDirectory = self.get_directory(self.fileDirectory)
@@ -270,6 +312,9 @@ class Export(object):
                 self.publishShapes = cmds.ls(sl=1)
         else:
             print "Publishing the given asset through batch"
+
+        if smooth:
+            self.render_smooth(selection=self.publishShapes)
 
         if obj:
             self.export_obj(self.fileDirectory)

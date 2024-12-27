@@ -1,0 +1,38 @@
+import maya.cmds as cmds
+
+def diffuse_texture(shader=None, shadename=None):
+    
+    texture = cmds.shadingNode('file', name="%s_diffuse_tex"%shadename, asTexture=True, isColorManaged=True)
+    aiColor = cmds.shadingNode("aiColorCorrect", name="%s_diffuse_colorCorrect"%shadename, asTexture=True)
+    cmds.connectAttr("%s.outColor"%texture, "%s.input"%aiColor)
+    cmds.connectAttr("%s.outColor"%aiColor, "%s.baseColor"%newShader)
+    
+def rough_texture(shader=None, shadename=None):
+    
+    texture = cmds.shadingNode('file', name="%s_rough_tex"%shadename, asTexture=True, isColorManaged=True)
+    aiColor = cmds.shadingNode("aiColorCorrect", name="%s_rough_colorCorrect"%shadename, asTexture=True)
+    luminance = cmds.shadingNode("luminance", name="%s_rough_luminance"%shadename, asUtility=True)
+    cmds.connectAttr("%s.outColor"%texture, "%s.input"%aiColor)
+    cmds.connectAttr("%s.outColor"%aiColor, "%s.value"%luminance)
+    cmds.connectAttr("%s.outValue"%luminance, "%s.specularRoughness"%newShader)
+    
+
+def create_shader(shadename=None):
+    
+    if not shadename:
+        shadename = "aiStandardSurface"
+    
+    newShader = cmds.shadingNode("aiStandardSurface", name= shadename, asShader=True)
+    return newShader
+
+
+name = "testName"
+
+newShader = create_shader(shadename=name)
+
+diffuse_texture(shader = newShader, shadename = name)
+rough_texture(shader = newShader, shadename = name)
+
+    
+
+cmds.hyperShade(sel,newShader, assign=True)
