@@ -8,7 +8,6 @@
         <list>
           <option value="os" />
           <option value="personal_pipeline.check_in_out.common_api.*" />
-          <option value="personal_pipeline.check_in_out.in_api.*" />
         </list>
       </option>
     </inspection_tool>

@@ -9,13 +9,13 @@
     Chris Jennings
 
 :synopsis:
-    A one line summary of what this module does.
+    Versions up the active Maya file
 
 :description:
     A detailed description of what this module does.
 
 :applications:
-    Any applications that are required to run this script, i.e. Maya.
+    Maya
 
 :see_also:
     Any other code that you have written that this module is similar to.
@@ -27,28 +27,16 @@
 
 # Built-in and Third Party
 
+
 # Modules That You Wrote
 
 #----------------------------------------------------------------------------------------#
 #--------------------------------------------------------------------------- FUNCTIONS --#
 
+
+
+
+
+
 #----------------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------- CLASSES --#
-
-class CheckOut(object):
-    """
-
-    """
-    def __init__(self):
-        """
-
-        """
-
-class CheckIn(object):
-    """
-
-    """
-    def __init__(self):
-        """
-
-        """
