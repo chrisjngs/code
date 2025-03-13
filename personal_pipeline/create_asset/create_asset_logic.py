@@ -36,7 +36,7 @@ import threading
 
 
 # Modules That You Wrote
-
+#import personal_pipeline.common.json_management as jm
 #----------------------------------------------------------------------------------------#
 #--------------------------------------------------------------------------- FUNCTIONS --#
 
@@ -44,7 +44,7 @@ import threading
 #----------------------------------------------------------------------------------------#
 #----------------------------------------------------------------------------- CLASSES --#
 
-class BuildStructure():
+class BuildStructure:
     """
     This class holds the logic to create the folder structure for a given asset.
     The final path structure should look like this:
@@ -111,11 +111,42 @@ class BuildStructure():
 
         return
 
-    def build_path(self):
+    def build_path(self, project=None, asset=None):
         """
         This function builds a folder path for the given project, asset, discipline, and
         software.
         """
+
+        if not project:
+            print("No project specified")
+            return
+        if not asset:
+            print("No asset specified")
+            return
+        temp_base = "c://Users//chris//code//personal_pipeline//new_project"
+        final_path = "%s//%s//assets//%s//"%(temp_base, project, asset)
+        disciplines = ["Model","Surface", "Rig"]
+        mod_soft = ["MAYA","ZBRUSH","EXPORTS"]
+        surf_soft = ["SUB_PAINT", "SUB_DESIGN", "MAYA", "PHOTOSHOP", "TEXTURES"]
+        rig_soft = ["MAYA", "EXPORTS"]
+        path_list = []
+
+        for disc in disciplines:
+            if disc == "Model":
+                for soft in mod_soft:
+                    path_list.append("%s%s//%s"%(final_path,disc,soft))
+            elif disc == "Surface":
+                for soft in surf_soft:
+                    path_list.append("%s%s//%s" % (final_path, disc, soft))
+            elif disc == "Rig":
+                for soft in rig_soft:
+                    path_list.append("%s%s//%s" % (final_path, disc, soft))
+
+        for path in path_list:
+            print path
+                #print path_list
+
+
 
         return
 
@@ -188,9 +219,6 @@ class BuildStructure():
         if not filepath:
             return False
 
-
-
-
     def update_spreadsheet(self):
         """
         Adds each new asset to the Google Sheet used for asset tracking.
@@ -205,6 +233,10 @@ class BuildStructure():
         asset given.
         """
 
+
+note_path = "C://Users//chris//Desktop//version_up//new_folder//asset_notes.json"
 bs = BuildStructure()
-bs.build_notes(filepath="C://Users//chris//Desktop//version_up//new_folder//asset_notes"
-                      ".json")
+
+#bs.build_notes(filepath=note_path)
+#bs.update_json(note_path, new_data=False)
+bs.build_path(project="Test_Project", asset="TestAsset")

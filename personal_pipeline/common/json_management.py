@@ -88,33 +88,40 @@ def update_json(filepath=None, key=None, new_value=None, note=None):
     if not os.path.exists(filepath):
         print("The provided filepath does not exist. Exiting the .json update.")
         return False
-
     if not new_value and not new_value == False:
         print("No new value was provided, exiting the .json update.")
         return
-
     if not key:
         print("No key was given to update. Exiting the .json update.")
         return
 
     existing_data = load_json(filepath)
     indexes = len(existing_data)
-
     count = 0
-    while count < indexes:
-        # compare the note in the listed dict to the one passed. If it matches modify
-        # the desired key
-        if existing_data[count]["note"] == note:
-            existing_data[count][key] = new_value
+    try:
+        if existing_data["first_note"]:
+            print (existing_data[key])
+            existing_data[key] = new_value
             write_json(filepath, existing_data)
             return
-        count = count+1
+    except:
+        count = 0
+        while count < indexes:
+            # compare the note in the listed dict to the one passed. If it matches modify
+            # the desired key
+            print("here %s"%count)
+            print existing_data["note"]
+            #print existing_data[count]["note"]
+            if existing_data[count]["note"] == note:
+                print ("check")
+                existing_data[count][key] = new_value
+                write_json(filepath, existing_data)
+                return
+            count = count+1
 
-    print("No note was found to match the provided one. Check that your note exists and "
-          "then try again.")
-    return
+        print("No note was found to match the provided one. Check that your note exists and "
+              "then try again.")
+        return
 
 # ----------------------------------------------------------------------------------------#
 # ----------------------------------------------------------------------------- CLASSES --#
-
-#update_json(filepath="Z://code//personal_pipeline//new_project//asset_notes.json")

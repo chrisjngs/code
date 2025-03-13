@@ -26,7 +26,6 @@
 # ----------------------------------------------------------------------------- IMPORTS --#
 
 # Built-in and Third Party
-import maya.cmds as cmds
 
 # Modules That You Wrote
 
